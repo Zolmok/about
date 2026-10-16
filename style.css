@@ -1,0 +1,198 @@
+:root {
+  color-scheme: light dark;
+  --bg: #fbfaf7;
+  --text: #1c1c1e;
+  --muted: #55565c;
+  --line: #d9d6cf;
+  --accent: #0b5cad;
+  --card: #fff;
+  --on-accent: #fff;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #121316;
+    --text: #ececee;
+    --muted: #a7a9b0;
+    --line: #33353b;
+    --accent: #7cb4ff;
+    --card: #1a1c20;
+    --on-accent: #0b1a2e;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.6;
+}
+
+.wrap {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding-inline: 1.25rem;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+p + p {
+  margin-top: 0.75rem;
+}
+
+a {
+  color: var(--accent);
+}
+
+a:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+/* Header */
+header {
+  padding-top: 3rem;
+  padding-bottom: 2rem;
+}
+
+h1 {
+  font-size: clamp(2rem, 6vw, 2.75rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.title {
+  margin-top: 0.5rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+/* Sections, with a 1px divider above each one and the footer */
+main > section,
+footer > p {
+  border-top: 1px solid var(--line);
+  padding: 2rem 0;
+}
+
+h2 {
+  margin-bottom: 1rem;
+  color: var(--accent);
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+h3 {
+  font-size: 1.05rem;
+  line-height: 1.4;
+}
+
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Timeline */
+.timeline {
+  border-left: 2px solid var(--line);
+  margin-left: 6px;
+}
+
+.timeline li {
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.timeline li + li {
+  margin-top: 1.75rem;
+}
+
+.timeline li::before {
+  content: "";
+  position: absolute;
+  top: 0.35rem;
+  left: -7px;
+  width: 12px;
+  height: 12px;
+  border: 2px solid var(--accent);
+  border-radius: 50%;
+  background: var(--bg);
+}
+
+.timeline .muted {
+  margin-top: 0;
+  font-size: 0.9rem;
+}
+
+.timeline .muted + p {
+  margin-top: 0.25rem;
+}
+
+/* Side project cards */
+.cards {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.cards li {
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--card);
+}
+
+.cards h3 {
+  margin-bottom: 0.25rem;
+}
+
+/* Contact buttons: all three the same size */
+.buttons {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.button {
+  display: block;
+  padding: 0.7rem 1rem;
+  border: 2px solid var(--line);
+  border-radius: 8px;
+  color: var(--text);
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+}
+
+.button.primary {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
+@media (min-width: 30rem) {
+  .buttons {
+    grid-template-columns: repeat(3, 9rem);
+  }
+}
+
+footer > p {
+  font-size: 0.9rem;
+}
